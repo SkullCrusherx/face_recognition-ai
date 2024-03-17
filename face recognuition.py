@@ -14,9 +14,8 @@ while True:
         flags=cv2.CASCADE_SCALE_IMAGE
     )
 
-    if (len(detection)>0):
-        (x,y,w,h) = detection[0]
-        frame = cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
+    for (x,y,w,h) in detection:
+        cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
 
     cv2.imshow('frame',frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
